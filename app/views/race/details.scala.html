@@ -1,16 +1,24 @@
 @(raceForm: Form[Race])
 
-@import helper._
+    @import helper._
 
-@main {
-    <h1>Race Form</h1>
-    @helper.form(action = routes.RaceController.save()) {
-        <fieldset>
-            <legend>Race (@raceForm("name").valueOr("New"))</legend>
-            @helper.inputText(raceForm("name"))
-            @helper.inputText(raceForm("location"))
-            @helper.inputDate(raceForm("date"))
-        </fieldset>
-        <input type="submit" class="btn btn-primary">
+    @main {
+        <h1>Race Form</h1>
+        @helper.form(action = routes.RaceController.save()) {
+            <fieldset>
+                <legend>Race (@raceForm("name").valueOr("New"))</legend>
+                @helper.inputText(raceForm("name"))
+                @helper.select(raceForm("state"), options("ACT" -> "Australian Capital Territory",
+                    "NSW" -> "New South Wales",
+                    "NT" -> "Northern Territory",
+                    "QLD" -> "Queensland",
+                    "SA" -> "South Australia",
+                    "TAS" -> "New South Wales",
+                    "VIC" -> "Victoria",
+                    "WA" -> "Western Australia"))
+                @helper.inputText(raceForm("suburb"))
+                @helper.inputDate(raceForm("date"))
+            </fieldset>
+            <input type="submit" class="btn btn-primary">
+        }
     }
-}

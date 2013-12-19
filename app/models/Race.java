@@ -17,7 +17,10 @@ public class Race extends Model {
     public String name;
 
     @Constraints.Required
-    public String location;
+    public String state;
+
+    @Constraints.Required
+    public String suburb;
 
     @Constraints.Required
     public Date date;
@@ -31,9 +34,10 @@ public class Race extends Model {
     @OneToMany(cascade = CascadeType.PERSIST)
     public List<Rating> ratings = new ArrayList<>();
 
-    public Race(String name, String location, Date date) {
+    public Race(String name, String state, String suburb, Date date) {
         this.name = name;
-        this.location = location;
+        this.state = state;
+        this.suburb = suburb;
         this.date = date;
         this.isApproved = false;
     }

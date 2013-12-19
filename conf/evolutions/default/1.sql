@@ -13,7 +13,8 @@ create table comment (
 create table race (
   id                        bigint not null,
   name                      varchar(255),
-  location                  varchar(255),
+  state                     varchar(255),
+  suburb                    varchar(255),
   date                      timestamp,
   is_approved               boolean not null,
   constraint pk_race primary key (id))

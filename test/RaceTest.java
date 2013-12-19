@@ -22,7 +22,8 @@ public class RaceTest {
         race.save();
         assertThat(race.id).isNotNull();
         assertThat(race.name).isNotNull();
-        assertThat(race.location).isNotNull();
+        assertThat(race.state).isNotNull();
+        assertThat(race.suburb).isNotNull();
         assertThat(race.date).isNotNull();
         assertThat(race.isApproved).isFalse();
     }
@@ -60,6 +61,6 @@ public class RaceTest {
     }
 
     private static Race createDummyRace() {
-        return new Race("SMH Half Marathon", "Sydney, NSW", new Date());
+        return new Race("SMH Half Marathon", "NSW", "Sydney", new Date());
     }
 }
