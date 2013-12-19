@@ -51,4 +51,8 @@ public class Race extends Model {
     public void approve() {
         this.isApproved = true;
     }
+
+    public List<Race> list() {
+        return new Finder<>(Long.class, Race.class).all();
+    }
 }
