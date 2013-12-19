@@ -1,3 +1,12 @@
-@main {
+@(races: List[Race])
 
+@main {
+    @for(race <- races) {
+        <dt>
+            <a href="@routes.RaceController.details(race.id)">
+                <i class="icon icon-pencil"></i>
+                @race.name
+            </a> </dt>
+        <dd>@race.name</dd>
+    }
 }

@@ -3,11 +3,14 @@
 # ~~~~
 
 # Home page
-GET         /                    controllers.Application.index()
+GET         /                        controllers.Application.index()
+
+# Race CRUD
+GET         /races                   controllers.RaceController.races()
+GET         /races/new               controllers.RaceController.newRace()
+POST        /races/                  controllers.RaceController.save()
+POST        /races/:id               controllers.RaceController.details(id: Long)
+POST        /races/:id/delete        controllers.RaceController.deleteRace(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file        controllers.Assets.at(path="/public", file)
-
-GET         /races               controllers.RaceController.races()
-POST        /races               controllers.RaceController.newRace()
-POST        /races/:id/delete    controllers.RaceController.deleteRace(id: Long)
+GET         /assets/*file            controllers.Assets.at(path="/public", file)

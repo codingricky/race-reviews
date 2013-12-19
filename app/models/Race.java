@@ -52,7 +52,7 @@ public class Race extends Model {
         this.isApproved = true;
     }
 
-    public List<Race> list() {
+    public static List<Race> list() {
         return new Finder<>(Long.class, Race.class).all();
     }
 }

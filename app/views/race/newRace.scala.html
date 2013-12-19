@@ -4,5 +4,12 @@
 
 @main {
     <h1>New Race Form</h1>
-
+    @helper.form(action = routes.RaceController.save()) {
+        <fieldset>
+            @helper.inputText(raceForm("name"))
+            @helper.inputText(raceForm("location"))
+            @helper.inputDate(raceForm("date"))
+        </fieldset>
+        <input type="submit" class="btn btn-primary">
+    }
 }
