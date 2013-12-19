@@ -1,5 +1,6 @@
 package models;
 
+import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
 import javax.persistence.*;
@@ -12,13 +13,13 @@ public class Race extends Model {
     @Id
     public Long id;
 
-    @Column(nullable = false)
+    @Constraints.Required
     public String name;
 
-    @Column(nullable = false)
+    @Constraints.Required
     public String location;
 
-    @Column(nullable = false)
+    @Constraints.Required
     public Date date;
 
     @Column(nullable = false)
@@ -54,5 +55,9 @@ public class Race extends Model {
 
     public static List<Race> list() {
         return new Finder<>(Long.class, Race.class).all();
+    }
+
+    public static Race findById(Long id) {
+        return new Finder<>(Long.class, Race.class).byId(id);
     }
 }

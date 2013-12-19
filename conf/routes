@@ -9,7 +9,7 @@ GET         /                        controllers.Application.index()
 GET         /races                   controllers.RaceController.races()
 GET         /races/new               controllers.RaceController.newRace()
 POST        /races/                  controllers.RaceController.save()
-POST        /races/:id               controllers.RaceController.details(id: Long)
+GET         /races/:id               controllers.RaceController.details(id: Long)
 POST        /races/:id/delete        controllers.RaceController.deleteRace(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path

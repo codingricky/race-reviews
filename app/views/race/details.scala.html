@@ -1,0 +1,16 @@
+@(raceForm: Form[Race])
+
+@import helper._
+
+@main {
+    <h1>Race Form</h1>
+    @helper.form(action = routes.RaceController.save()) {
+        <fieldset>
+            <legend>Race (@raceForm("name").valueOr("New"))</legend>
+            @helper.inputText(raceForm("name"))
+            @helper.inputText(raceForm("location"))
+            @helper.inputDate(raceForm("date"))
+        </fieldset>
+        <input type="submit" class="btn btn-primary">
+    }
+}

@@ -26,11 +26,13 @@ public class RaceController  {
     }
 
     public static Result details(Long id) {
-        return null;
+        Race race = Race.findById(id);
+        Form<Race> filledForm = raceForm.fill(race);
+        return ok(views.html.race.details.render(filledForm));
     }
 
     public static Result newRace() {
-        return ok(views.html.race.newRace.render(raceForm));
+        return ok(views.html.race.details.render(raceForm));
     }
 
     public static Result deleteRace(Long id) {
