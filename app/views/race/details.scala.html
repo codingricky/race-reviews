@@ -1,10 +1,11 @@
-@(raceForm: Form[Race])
+@(raceForm: Form[Race], destination: play.api.mvc.Call)
 
     @import helper._
 
     @main {
         <h1>Race Form</h1>
-        @helper.form(action = routes.RaceController.save()) {
+
+        @helper.form(action = destination) {
             <fieldset>
                 <legend>Race (@raceForm("name").valueOr("New"))</legend>
                 @helper.inputText(raceForm("name"))

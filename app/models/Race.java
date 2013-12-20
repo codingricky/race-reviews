@@ -34,6 +34,8 @@ public class Race extends Model {
     @OneToMany(cascade = CascadeType.PERSIST)
     public List<Rating> ratings = new ArrayList<>();
 
+    private static Finder<Long, Race> finder = new Finder<>(Long.class, Race.class);
+
     public Race(String name, String state, String suburb, Date date) {
         this.name = name;
         this.state = state;

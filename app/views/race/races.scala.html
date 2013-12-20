@@ -1,12 +1,26 @@
 @(races: List[Race])
-
-@main {
-    @for(race <- races) {
-        <dt>
-            <a href="@routes.RaceController.details(race.id)">
-                <i class="icon icon-pencil"></i>
-                @race.name
-            </a> </dt>
-        <dd>@race.name</dd>
+<script>
+    function deleteRace(id) {
+    $.ajax({type: "DELETE",
+    url: "@routes.RaceController.delete(10)",
+    data: {id:id}});
     }
-}
+</script>
+
+    @import helper._
+
+    @main {
+        @for(race <- races) {
+            <dt>
+                <a href="@routes.RaceController.details(race.id)">
+                    <i class="fa fa-edit"></i>
+                    @race.name
+                </a> </dt>
+            <dd>@race.name</dd>
+
+
+            @helper.form(action = routes.RaceController.delete(race.id)) {
+                <input type="submit" class="fa fa-trash-o">
+            }
+        }
+    }
