@@ -1,0 +1,26 @@
+<div class="container" ng-controller="raceController">
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>Name</th>
+            <th>State</th>
+            <th>Suburb</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="race in races">
+            <td>{{ race.name}}</td>
+            <td>{{ race.state }}</td>
+            <td>{{ race.suburb }}</td>
+            <td>{{ race.date | date }}</td>
+            <td>
+                <a href="#/race/details/{{ race.id }}">
+                    <button class="fa fa-pencil"></button>
+                </a>
+            </td>
+            <td>
+                <button class="fa fa-trash-o" ng-click="deleteRace(race.id);"></button>
+            </td>
+        </tr>
+    </table>
+</div>
