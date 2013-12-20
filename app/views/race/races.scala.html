@@ -1,9 +1,10 @@
 @(races: List[Race])
 <script>
     function deleteRace(id) {
-    $.ajax({type: "DELETE",
-    url: "@routes.RaceController.delete(10)",
-    data: {id:id}});
+        jsRoutes.controllers.RaceController.delete(id).ajax({
+        success: function(data) {
+            alert(data);
+        }});
     }
 </script>
 
@@ -18,9 +19,6 @@
                 </a> </dt>
             <dd>@race.name</dd>
 
-
-            @helper.form(action = routes.RaceController.delete(race.id)) {
-                <input type="submit" class="fa fa-trash-o">
-            }
+           <a onclick='deleteRace(@race.id);'><i class="fa fa-trash-o"></i></a>
         }
     }
