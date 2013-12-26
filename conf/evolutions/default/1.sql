@@ -33,20 +33,24 @@ create sequence race_seq;
 
 create sequence rating_seq;
 
-alter table comment add constraint fk_comment_race_1 foreign key (race_id) references race (id);
+alter table comment add constraint fk_comment_race_1 foreign key (race_id) references race (id) on delete restrict on update restrict;
 create index ix_comment_race_1 on comment (race_id);
-alter table rating add constraint fk_rating_race_2 foreign key (race_id) references race (id);
+alter table rating add constraint fk_rating_race_2 foreign key (race_id) references race (id) on delete restrict on update restrict;
 create index ix_rating_race_2 on rating (race_id);
 
 
 
 # --- !Downs
 
-drop table if exists comment cascade;
+SET REFERENTIAL_INTEGRITY FALSE;
 
-drop table if exists race cascade;
+drop table if exists comment;
 
-drop table if exists rating cascade;
+drop table if exists race;
+
+drop table if exists rating;
+
+SET REFERENTIAL_INTEGRITY TRUE;
 
 drop sequence if exists comment_seq;
 
