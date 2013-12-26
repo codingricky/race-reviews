@@ -31,6 +31,14 @@ public class RestRaceController {
         return ok(toJson(race));
     }
 
+    public static Result delete(Long id) {
+        Race race = Race.findById(id);
+        if (race == null) return notFound();
+
+        race.delete();
+        return ok();
+    }
+
     @BodyParser.Of(BodyParser.Json.class)
     public static Result update(long id) {
         Race race = getRace();

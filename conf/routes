@@ -3,26 +3,27 @@
 # ~~~~
 
 # Home page
-GET         /                                 controllers.RestRaceController.index()
+GET           /                                 controllers.RestRaceController.index()
 
 # Race CRUD
-GET         /races                            controllers.RaceController.races()
-GET         /races/new                        controllers.RaceController.newRace()
-POST        /races/                           controllers.RaceController.create()
-GET         /races/:id                        controllers.RaceController.details(id: Long)
-POST        /races/:id                        controllers.RaceController.update(id: Long)
-POST        /races/:id/delete                 controllers.RaceController.delete(id: Long)
+GET           /races                            controllers.RaceController.races()
+GET           /races/new                        controllers.RaceController.newRace()
+POST          /races/                           controllers.RaceController.create()
+GET           /races/:id                        controllers.RaceController.details(id: Long)
+POST          /races/:id                        controllers.RaceController.update(id: Long)
+POST          /races/:id/delete                 controllers.RaceController.delete(id: Long)
 
 # Race REST
-GET         /api/race                         controllers.RestRaceController.list()
-GET         /api/race/:id                     controllers.RestRaceController.details(id: Long)
-PUT         /api/race/:id                     controllers.RestRaceController.update(id: Long)
-POST        /api/race                         controllers.RestRaceController.create()
+GET           /api/race                         controllers.RestRaceController.list()
+GET           /api/race/:id                     controllers.RestRaceController.details(id: Long)
+PUT           /api/race/:id                     controllers.RestRaceController.update(id: Long)
+POST          /api/race                         controllers.RestRaceController.create()
+DELETE        /api/race/:id                     controllers.RestRaceController.delete(id: Long  )
 
 
-GET         /assets/javascripts/routes        controllers.Application.javascriptRoutes()
+GET           /assets/javascripts/routes        controllers.Application.javascriptRoutes()
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                     controllers.Assets.at(path="/public", file)
+GET           /assets/*file                     controllers.Assets.at(path="/public", file)
 
 

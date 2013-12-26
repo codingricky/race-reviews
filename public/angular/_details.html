@@ -1,0 +1,44 @@
+<dl id="name_field">
+    <dt><label for="name">Name</label></dt>
+    <dd>
+        <input type="text" id="name" name="name" placeholder="SMH Half Marathon" class="form-control"
+               ng-model="race.name" required>
+        <span class="label label-warning" ng-show="form.race.$error.required">Required</span>
+    </dd>
+</dl>
+<dl id="state_field">
+    <dt><label for="state">State</label></dt>
+    <dd>
+        <select id="state" name="state" ng-model="race.state" required>
+            <option>ACT</option>
+            <option>NSW</option>
+            <option>VIC</option>
+            <option>QLD</option>
+            <option>NT</option>
+            <option>TAS</option>
+            <option>WA</option>
+        </select>
+        <span class="label label-warning" ng-show="form.race.$error.required">Required</span>
+    </dd>
+</dl>
+<dl id="suburb_field">
+    <dt><label for="suburb">Suburb</label></dt>
+    <dd>
+        <input type="text" id="suburb" name="suburb" placeholder="Sydney" class="form-control"
+               ng-model="race.suburb" required>
+        <span class="label label-warning" ng-show="form.race.$error.required">Required</span>
+    </dd>
+</dl>
+<dl id="date_field">
+    <dt><label for="date">Date</label></dt>
+    <dd>
+        <datetimepicker id="date" ng-model="race.date"
+                        data-datetimepicker-config="{ startView:'day', minView:'day' }" />
+    </dd>
+</dl>
+
+
+<div class="controls form-horizontal">
+    <button type="submit" class="btn btn-default" id="submit">Submit</button>
+    <button type="button" class="btn btn-default" id="cancel" ng-click="cancel();">Cancel</button>
+</div>
