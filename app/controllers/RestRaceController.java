@@ -38,6 +38,13 @@ public class RestRaceController {
         return ok();
     }
 
+    @BodyParser.Of(BodyParser.Json.class)
+    public static Result create() {
+        Race race = getRace();
+        race.save();
+        return ok();
+    }
+
     private static Race getRace() {
         JsonNode json = request().body().asJson();
         return fromJson(json, Race.class);
