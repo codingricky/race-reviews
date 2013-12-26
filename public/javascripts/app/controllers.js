@@ -32,6 +32,7 @@ angular.module('app.controllers', ['app.services'])
     }])
     .controller('newRaceController', ['$scope', '$location', 'Race', function ($scope, $location, Race) {
         $scope.race = new Race();
+        $scope.race.date = new Date();
         $scope.create = function() {
             $scope.race.$save(function() {
                 $location.url('/index');
