@@ -1,12 +1,18 @@
 "use strict";
 
 angular.module('app.controllers', ['app.services'])
-    .controller('tableRaceController', ['$scope', 'racesService', function ($scope, racesService) {
-        $scope.races = racesService.query();
+    .controller('tableRaceController', ['$scope', 'Race', function ($scope, Race) {
+        $scope.races = Race.query();
     }])
-    .controller('raceController', ['$scope', '$routeParams', 'raceService', function ($scope, $routeParams, raceService) {
+    .controller('raceController', ['$scope', '$routeParams', '$location', 'Race', function ($scope, $routeParams, $location, Race) {
         var raceId = $routeParams.id;
-        var race = raceService.get({id: raceId}, function() {
+        var race = Race.get({id: raceId}, function() {
             $scope.race = race;
         });
+
+        $scope.save = function () {
+            race.$update({id: raceId}, function () {
+                $location.url('/index');
+            });
+        }
     }]);

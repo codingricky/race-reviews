@@ -14,8 +14,9 @@ POST        /races/:id                        controllers.RaceController.update(
 POST        /races/:id/delete                 controllers.RaceController.delete(id: Long)
 
 # Race REST
-GET         /api/races                        controllers.RestRaceController.list()
+GET         /api/race                         controllers.RestRaceController.list()
 GET         /api/race/:id                     controllers.RestRaceController.details(id: Long)
+PUT         /api/race/:id                     controllers.RestRaceController.update(id: Long)
 
 
 GET         /assets/javascripts/routes        controllers.Application.javascriptRoutes()
