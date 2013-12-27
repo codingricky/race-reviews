@@ -15,10 +15,6 @@ import static play.mvc.Results.ok;
 
 public class RestRaceController {
 
-    public static Result index() {
-        return ok(views.html.rest.index.render());
-    }
-
     public static Result list() {
         List<Race> races = Race.list();
         return ok(toJson(races));
