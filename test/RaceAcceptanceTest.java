@@ -17,8 +17,8 @@ public class RaceAcceptanceTest {
     public void createRace() {
         runTest(new Callback<TestBrowser>() {
             public void invoke(TestBrowser browser) {
-                browser.goTo(LOCALHOST);
                 browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                browser.goTo(LOCALHOST + "/index");
                 assertThat(browser.title()).contains("Race Reviews");
 
                 browser.$("#plus").click();
@@ -28,6 +28,18 @@ public class RaceAcceptanceTest {
 
                 assertThat(browser.title()).contains("Race Reviews");
                 assertThat(browser.$("#state").getText()).contains("VIC");
+            }
+        });
+    }
+
+    @Test
+    public void login() {
+        runTest(new Callback<TestBrowser>() {
+            public void invoke(TestBrowser browser) {
+                browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                browser.goTo(LOCALHOST + "/secured");
+                assertThat(browser.title()).contains("Login");
+
             }
         });
     }
