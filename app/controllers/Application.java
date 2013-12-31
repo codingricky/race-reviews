@@ -7,6 +7,7 @@ import views.html.index;
 
 public class Application extends Controller {
 
+    @SecureSocial.SecuredAction
     public static Result index() {
         return ok(index.render());
     }
