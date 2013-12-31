@@ -22,6 +22,10 @@ public class PersistableToken extends Model {
         return new Finder<>(String.class, PersistableToken.class).byId(uuid);
     }
 
+    public static PersistableToken findByEmail(String email) {
+        return Ebean.find(PersistableToken.class).where().eq("email", email).findUnique();
+    }
+
     public static List<PersistableToken> findAll() {
         return Ebean.find(PersistableToken.class).findList();
     }
